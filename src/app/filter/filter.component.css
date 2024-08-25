@@ -1,0 +1,106 @@
+.filter-container{
+  height: 300px;
+  width: 300px;
+  background-color: #393939;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  .filter-content{
+    display: flex;
+    align-items: start;
+
+    .filter-categories{
+      color: white;
+      width: 40%;
+
+      .category{
+        padding: 8px 14px;
+        margin: 3px 0px;
+        border-left: 3px solid transparent;
+        cursor: pointer;
+        &.isActive{
+          border-left: 3px solid red;
+          background: rgb(237 237 237 / 25%);
+        }
+        &.selected{
+          border-left: 3px solid blue;
+          background: rgb(237 237 237 / 25%);
+        }
+        &:hover{
+          background: rgb(237 237 237 / 25%);
+        }
+      }
+    }
+
+    .filter-options{
+      width: 60%;
+      padding: 0px 5px;
+      color: white;
+      height: 265px;
+      .option{
+        display: flex;
+        align-items: center;
+        .option-label{
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+
+  .footer{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    .action-btn{
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0px 10px;
+      background: transparent;
+      border: 0;
+      color: white;
+      cursor: pointer;
+    }
+
+    .reset{
+      margin-right: 8px;
+      &:hover{
+        background-color: gray;
+      }
+    }
+
+    .apply{
+      background-color: blue;
+      border-radius: 5px;
+    }
+
+    .disabled{
+      opacity: 0.5;
+    }
+  }
+}
+
+.filter-icon{
+  height: 25px;
+  width: 25px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  svg{
+    height: 25px;
+    width: 25px;
+  }
+
+  &.active{
+    background-color: black;
+    svg{
+      fill: white;
+    }
+  }
+}

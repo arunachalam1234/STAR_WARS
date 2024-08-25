@@ -1,0 +1,109 @@
+.header-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  min-height: 30px;
+  margin: 0px 20px;
+  box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2),
+    -2px 0px 2px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.2),
+    0px -2px 2px 0px rgba(0, 0, 0, 0.2);
+  .header-title {
+    .title-text {
+      font-weight: bold;
+      color: #393939;
+    }
+  }
+
+  .filter-section {
+    align-items: center;
+    display: flex;
+
+    .search-box {
+      border: 2px solid rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      padding: 0px 5px 0px 0px;
+      margin-right: 10px;
+      .search-box-input {
+        display: flex;
+        align-items: center;
+        height: 16px;
+        margin: 4px 8px 4px 5px;
+        border: 0;
+        background: rgba(0, 0, 0, 0.15);
+        &:focus {
+          border: 0;
+          outline: 0;
+        }
+      }
+
+      svg-icon{
+        cursor: pointer;
+        height: 15px;
+        svg{
+          height: 15px;
+          fill: rgba(0,0,0,0.5);
+        }
+      }
+    }
+  }
+}
+
+.character-list {
+  height: calc(100% - 50px);
+  .list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: bolder;
+  }
+
+  .list-header,
+  .list-item {
+    .item-cell, .header-cell{
+      flex: 1;
+      padding: 0px 10px;
+    }
+    .name {
+      min-width: 28%;
+     
+    }
+  }
+
+  .list-header{
+    .index {
+      max-width: 75px !important;
+      padding: 0 !important;
+    }
+  }
+
+  .list-item{
+    .index {
+      max-width: 65px !important;
+      padding: 0px 0px 0px 10px !important;
+    }
+  }
+
+  .items-container {
+    height: calc(100% - 50px);
+    overflow-y: scroll;
+    margin-right: 5px;
+    padding: 0px 7px 0px 20px;
+    .list-item {
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 10px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2),
+        -2px 0px 2px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.2),
+        0px -2px 2px 0px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+

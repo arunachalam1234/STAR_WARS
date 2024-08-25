@@ -1,0 +1,39 @@
+
+<div class="header-card">
+  <div class="header-title">
+    <span class="title-text">Characters</span>
+  </div>
+  <div class="filter-section">
+    <div class="search-box">
+      <input
+        (input)="onSearch()"
+        [(ngModel)]="searchValue"
+        type="text"
+        class="search-box-input"
+        placeholder="Enter search text"
+      />
+      <svg-icon [src]="'assets/icons/close.svg'" (click)="clearSearch()"></svg-icon>
+    </div>
+    <app-filter class="filter-component"
+    [filteroptionsData]="getFilteroptionsData()"
+    ></app-filter>
+  </div>
+</div>
+<div class="character-list">
+  <div class="list-header">
+    @for(col of columns; track col){
+      <div [class]="col + ' header-cell'">{{columnHeaders[col]}}</div>
+    }
+  </div>
+  <div class="items-container scroller">
+    @for(item of characters(); track item; let i=$index){
+    <div class="list-item"
+      (click)="onItemClick(item, item.id)"
+    >
+      @for(col of columns; track col){
+        <span [class]="col + ' item-cell'">{{col == 'index' ? i+1 : getValue(col, item)}}</span>
+      }
+    </div>
+    }
+  </div>
+</div>

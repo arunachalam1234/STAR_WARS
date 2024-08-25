@@ -1,0 +1,94 @@
+.scroller{
+  overflow-y: scroll;
+}
+
+.scroller::-webkit-scrollbar{
+  width: 8px;
+}
+
+.scroller::-webkit-scrollbar-thumb{
+  width: 8px;
+  background-color: gray;
+  border-radius: 4px;
+}
+
+.mdc-checkbox{
+  .mdc-checkbox__native-control:checked~.mdc-checkbox__background{
+    background-color: blue !important;
+  }
+
+  &:hover{
+    background-color: rgba(237 237 237 / 25%) !important;
+    border-radius: 50%;
+    .mdc-checkbox__native-control:checked~.mdc-checkbox__background{
+      background-color: blue !important;
+    }
+
+    .mdc-checkbox__native-control:not(:checked)~.mdc-checkbox__background{
+      background-color: rgba(237 237 237 / 25%) !important;
+    }
+  }
+}
+
+.flex-display{
+  display: flex !important;
+}
+
+.align-center{
+  align-items: center !important;
+}
+
+.justify-space-between{
+  justify-content: space-between !important;
+}
+
+.align-start{
+  align-items: start !important;
+}
+
+.justify-center{
+  justify-content: center;
+}
+
+.justify-end{
+  justify-content: end !important;
+}
+.w-50{
+  width: 50%;
+}
+
+.w-100{
+  width: 100%;
+}
+
+.pb-5{
+  padding-bottom: 5px;
+}
+
+.pl-10{
+  padding-left: 10px;
+}
+
+.pr-10{
+  padding-right: 10px;
+}
+
+.mr-5{
+  margin-right: 5px;
+}
+
+.ml-5{
+  margin-left: 5px;
+}
+
+.h-100{
+  height: 100%;
+}
+
+.text-align-end{
+  text-align: end;
+}
+
+.m-auto{
+  margin: auto;
+}

@@ -1,0 +1,195 @@
+@if(info){
+  <div class="info-header">
+    <svg-icon [src]="'assets/icons/left.svg'"
+    (click)="onBackClick()"
+      class="back-icon"
+    ></svg-icon>
+    <div class="info-name">{{info?.name}}</div>
+  </div>
+  <div class="info-content-container">
+    <div class="left-container">
+      <div class="sections scroller">
+        @for(key of sections; track key){
+          <div class="section">
+            <div class="header">{{sectionData[key]?.header}}</div>
+            <div class="content-container">
+              @if(sectionData[key].isEmpty){
+                <div class="nodata">
+                  <span class="text">
+                    --
+                  </span></div>
+              }@else{
+                @for(sectionContent of sectionData[key]?.contents; track sectionContent){
+                  <div class="content">
+                    <span class="content-header">{{sectionContent.header}}</span>
+                    <span class="delimeter">:</span>
+                    <span class="value">{{sectionContent.value}}</span>
+                  </div>
+                }
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+    <div class="right-container">
+      <div class="scroller h-100">
+        <div class="data-container">
+          <div class="header">Films</div>
+          <div class="content-container">
+            @for(film of info.filmsData; track film){
+              <div class="film">
+                <div class="flex-display justify-space-between pb-5">
+                  <div class=" w-50 pr-10">
+                    <span><b>Name:</b></span>
+                    <span class="ml-5">{{film.title}}</span>
+                  </div>
+                  <div class=" text-align-end w-50 pl-10">
+                    <span>Produced by</span>
+                    <span class="ml-5"><b>{{film.producer}}</b></span>
+                  </div>
+                </div>
+                <div class="flex-display  justify-space-between pb-5">
+                  <div class="w-50 pr-10">
+                    <span>Directed by</span>
+                    <span class="ml-5"><b>{{film.director}}</b></span>
+                  </div>
+                  <div class=" text-align-end w-50 pl-10">
+                    <span>Released on</span>
+                    <span class="ml-5"><b>{{film.release_date}}</b></span>
+                  </div>
+                </div>
+                <div class="summary">
+                  {{film.opening_crawl}}
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+        <div class="data-container">
+          <div class="header">Vehicles</div>
+          <div class="content-container">
+            @for(vehicle of info.vehiclesData; track vehicle){
+              <div class="vehicle">
+                <div class="flex-display justify-space-between">
+                  <div class="w-50 pr-10 m-auto">
+                    <div class="pb-5">
+                      <span><b>Name</b></span>
+                      <span class="mr-5 ml-5">-</span>
+                      <span class="ml-5">{{vehicle.name ?? '--'}}</span>
+                    </div>
+                    <div class="pb-5">
+                      <span><b>Manufacturer</b></span>
+                      <span class="mr-5 ml-5">-</span>
+                      <span class="ml-5">{{vehicle.manufacturer ?? '--'}}</span>
+                    </div>
+                    <div class="pb-5">
+                      <span><b>Cost</b></span>
+                      <span class="mr-5 ml-5">-</span>
+                      <span class="ml-5">{{vehicle.cost_in_credits ?? '--'}}</span>
+                    </div>
+                    <div class="pb-5">
+                      <span><b>Crew</b></span>
+                      <span class="mr-5 ml-5">-</span>
+                      <span class="ml-5">{{vehicle.crew ?? '--'}}</span>
+                    </div>
+                  </div>
+                  <div class="w-50 pl-10 m-auto">
+                    <div class="pb-5">
+                      <span><b>Model</b></span>
+                      <span class="mr-5 ml-5">-</span>
+                      <span class="ml-5">{{vehicle.model ?? '--'}}</span>
+                    </div>
+                    <div class="pb-5">
+                      <span><b>Class</b></span>
+                      <span class="mr-5 ml-5">-</span>
+                      <span class="ml-5">{{vehicle.vehicle_class ?? '--'}}</span>
+                    </div>
+                    <div class="pb-5">
+                      <span><b>Capacity</b></span>
+                      <span class="mr-5 ml-5">-</span>
+                      <span class="ml-5">{{vehicle.cargo_capacity ?? '--'}}</span>
+                    </div>
+                    <div class="pb-5">
+                      <span><b>Passengers</b></span>
+                      <span class="mr-5 ml-5">-</span>
+                      <span class="ml-5">{{vehicle.passengers ?? '--'}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
+
+            @if(!info.vehiclesData || info.vehiclesData.length == 0){
+              <div class="vehicle justify-center flex-display">
+                <span >No vehicles available</span>
+              </div>
+            }
+          </div>
+        </div>
+        <div class="data-container">
+          <div class="header">Starships</div>
+          <div class="content-container">
+            @for(starShip of info.starShipsData; track starShip){
+              <div class="starship">
+                <div class="flex-display justify-space-between">
+                  <div class="w-50 pr-10 m-auto">
+                    <div class="pb-5">
+                      <span><b>Name</b></span>
+                      <span class="mr-5 ml-5">-</span>
+                      <span class="ml-5">{{starShip.name ?? '--'}}</span>
+                    </div>
+                    <div class="pb-5">
+                      <span><b>Manufacturer</b></span>
+                      <span class="mr-5 ml-5">-</span>
+                      <span class="ml-5">{{starShip.manufacturer ?? '--'}}</span>
+                    </div>
+                    <div class="pb-5">
+                      <span><b>Cost</b></span>
+                      <span class="mr-5 ml-5">-</span>
+                      <span class="ml-5">{{starShip.cost_in_credits ?? '--'}}</span>
+                    </div>
+                    <div class="pb-5">
+                      <span><b>Crew</b></span>
+                      <span class="mr-5 ml-5">-</span>
+                      <span class="ml-5">{{starShip.crew ?? '--'}}</span>
+                    </div>
+                  </div>
+                  <div class="w-50 pl-10 m-auto">
+                    <div class="pb-5">
+                      <span><b>Model</b></span>
+                      <span class="mr-5 ml-5">-</span>
+                      <span class="ml-5">{{starShip.model ?? '--'}}</span>
+                    </div>
+                    <div class="pb-5">
+                      <span><b>Class</b></span>
+                      <span class="mr-5 ml-5">-</span>
+                      <span class="ml-5">{{starShip.starship_class ?? '--'}}</span>
+                    </div>
+                    <div class="pb-5">
+                      <span><b>Capacity</b></span>
+                      <span class="mr-5 ml-5">-</span>
+                      <span class="ml-5">{{starShip.cargo_capacity ?? '--'}}</span>
+                    </div>
+                    <div class="pb-5">
+                      <span><b>Passengers</b></span>
+                      <span class="mr-5 ml-5">-</span>
+                      <span class="ml-5">{{starShip.passengers ?? '--'}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
+            @if(!info.starShipsData || info.starShipsData.length == 0){
+              <div class="starship justify-center flex-display">
+                <span >No starships available</span>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+}
+

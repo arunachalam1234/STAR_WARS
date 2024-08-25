@@ -1,0 +1,134 @@
+.info-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  min-height: 30px;
+  margin: 0px 20px;
+  box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2),
+    -2px 0px 2px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.2),
+    0px -2px 2px 0px rgba(0, 0, 0, 0.2);
+
+  .info-name {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex: 1;
+    font-weight: bold;
+    margin-left: -25px;
+  }
+
+  .back-icon {
+    height: 20px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    cursor: pointer;
+
+    &:hover {
+      background-color: lightgray;
+    }
+  }
+}
+
+.info-content-container {
+  padding: 15px 20px 0px 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: calc(100% - 65px);
+  overflow-x: auto;
+
+  .left-container {
+    width: 30%;
+    min-width: 250px;
+    box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2),
+      -2px 0px 2px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.2),
+      0px -2px 2px 0px rgba(0, 0, 0, 0.2);
+    height: calc(100% - 15px);
+    margin-right: 8px;
+    padding: 5px;
+
+    .sections {
+      height: 100%;
+    }
+
+    .section {
+      padding: 10px 10px 10px 18px;
+
+      .header {
+        font-weight: bold;
+        padding: 0px 0px 10px 0px;
+      }
+
+      .content-container {
+        padding: 10px 20px;
+        line-height: 20px;
+        background-color: rgba(0, 0, 0, 0.08);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .nodata {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .text{
+            width: 20%;
+          }
+        }
+
+        .content {
+          display: flex;
+          width: 100%;
+
+          .content-header,
+          .value {
+            width: 40%;
+          }
+
+          .delimeter {
+            width: 20%;
+          }
+        }
+      }
+    }
+  }
+
+  .right-container {
+    width: 70%;
+    min-width: 400px;
+    height: calc(100% - 15px);
+    margin-left: 8px;
+    box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2),
+      -2px 0px 2px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.2),
+      0px -2px 2px 0px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+
+    .data-container{
+      padding: 0px 10px 0px 18px;
+      .header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        padding: 10px;
+      }
+      .film, .vehicle,.starship{
+        padding: 10px 15px;
+        background-color: rgba(0, 0, 0, 0.08);
+        margin-bottom: 10px;
+
+        .summary{
+          padding-top: 5px;
+          text-align: justify;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}

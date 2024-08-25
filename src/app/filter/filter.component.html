@@ -1,0 +1,64 @@
+<div class="filter">
+  <svg-icon [src]="'assets/icons/filter.svg'"
+    [ngbPopover]="filterTemplate"
+    [popoverClass]="'filter-popover'"
+    [placement]="'bottom-right'"
+    [autoClose]="'outside'"
+    (hidden)="onPopupClose()"
+    (shown)="onOpenPopup()"
+    class="filter-icon"
+    #filter="ngbPopover"
+    [ngClass]="{
+      'active': anyActiveFilter()
+    }"
+  ></svg-icon>
+</div>
+
+<ng-template #filterTemplate>
+  <div class="filter-container">
+    <div class="filter-content">
+      <div class="filter-categories">
+        @for(category of categories; track category){
+          <div class="category"
+            (click)="changeSelection(category)"
+            [ngClass]="{
+              'selected':selectedCategory == category,
+              'isActive': isActiveFilter(category)
+            }"
+          >
+            <span class="text">{{categoryHeading[category]}}</span>
+          </div>
+        }
+      </div>
+      <div class="filter-options scroller">
+        @for(option of filteroptionsData[selectedCategory]; track option){
+          <div class="option">
+            <mat-checkbox
+            [checked]="option.selected"
+            (change)="onCheckboxClicked($event.checked, option)"
+            >
+            </mat-checkbox>
+            
+            <div class="option-label" [title]="option.content">{{option.content}}</div>
+          </div>
+        }
+      </div>
+    </div>
+    <div class="footer">
+      <button class="action-btn reset" (click)="resetFilter()"
+      [ngClass]="{
+        disabled: !anyActiveFilter()
+      }"
+      >
+        Reset
+      </button>
+      <button class="action-btn apply " (click)="applyFilter(filter)"
+        [ngClass]="{
+          disabled: !isDirty()
+        }"
+      >
+        Apply
+      </button>
+    </div>
+  </div>
+</ng-template>
